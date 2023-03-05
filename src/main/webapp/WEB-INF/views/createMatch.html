@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Match</title>
+</head>
+<body>
+<h1>Create Match</h1>
+<form method="post" th:action="@{/football/matches}">
+    <label for="homeTeam">Home Team:</label>
+    <select id="homeTeam" name="homeTeamId">
+        <option th:each="team : ${teams}" th:value="${team.id}" th:text="${team.name}"></option>
+    </select>
+    <br>
+    <label for="awayTeam">Away Team:</label>
+    <select id="awayTeam" name="awayTeamId">
+        <option th:each="team : ${teams}" th:value="${team.id}" th:text="${team.name}"></option>
+    </select>
+    <br>
+    <label for="homeTeamGoals">Home Team Goals:</label>
+    <input type="number" id="homeTeamGoals" name="homeTeamGoals" min="0">
+    <br>
+    <label for="awayTeamGoals">Away Team Goals:</label>
+    <input type="number" id="awayTeamGoals" name="awayTeamGoals" min="0">
+    <br>
+    <input type="submit" value="Create Match">
+</form>
+</body>
+</html>
